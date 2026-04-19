@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary selection:text-background;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(20, 61, 48, 0.4) 0%, transparent 25%),
+      radial-gradient(circle at 100% 100%, rgba(20, 61, 48, 0.4) 0%, transparent 25%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-luxury;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/20 border border-white/5 shadow-2xl;
+  }
+
+  .btn-gold {
+    @apply bg-primary hover:bg-primary-hover text-background font-bold px-8 py-4 rounded-full 
+           transition-all duration-300 shadow-gold-glow active:scale-95 inline-flex items-center justify-center;
+  }
+
+  .text-gold {
+    @apply text-primary font-serif italic;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
