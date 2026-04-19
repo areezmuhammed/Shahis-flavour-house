@@ -31,7 +31,8 @@ export function CartSheet({ isOpen, onClose }: CartSheetProps) {
     };
 
     const message = formatWhatsAppMessage(order);
-    const link = getWhatsAppLink(message, '447000000000'); 
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '910000000000';
+    const link = getWhatsAppLink(message, whatsappNumber);
     window.open(link, '_blank');
   };
 
