@@ -55,7 +55,7 @@ export function Footer() {
                 <img 
                   src="/images/shahi_logo.jpg" 
                   alt="Shahi Logo" 
-                  className="w-full h-full object-cover scale-[1.5] object-top transform translate-y-1" 
+                  className="w-full h-full object-cover scale-[1.5] object-top transform -translate-y-3" 
                 />
               </div>
               <div>
