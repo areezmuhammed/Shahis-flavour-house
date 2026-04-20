@@ -26,7 +26,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-3">
             <Phone size={16} className="text-primary" />
-            <span>+44 7000 000000</span>
+            <span>+91 81471 91739</span>
           </div>
           <div className="flex items-center gap-3">
             <MapPin size={16} className="text-primary" />
@@ -51,11 +51,13 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-8">
             <div className="flex items-center gap-4">
-              <img 
-                src="/images/logo/605b34d4-6d23-4142-baa8-4e2f61109c9b.jpg" 
-                alt="Shahi Logo" 
-                className="w-16 h-16 rounded-full border border-primary/50 shadow-gold-glow"
-              />
+              <div className="w-16 h-16 rounded-full overflow-hidden border border-primary/50 bg-background flex items-center justify-center p-1">
+                <img 
+                  src="/images/shahi_logo.jpg" 
+                  alt="Shahi Logo" 
+                  className="w-full h-full object-cover scale-[1.5] object-top transform translate-y-1" 
+                />
+              </div>
               <div>
                 <h2 className="text-2xl font-serif font-black text-primary tracking-tight leading-none">SHAHI'S</h2>
                 <span className="text-[10px] uppercase tracking-[0.3em] font-medium opacity-60">Flavour House</span>
