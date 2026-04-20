@@ -15,7 +15,7 @@ export const formatWhatsAppMessage = (order: Order): string => {
   return message;
 };
 
-export const getWhatsAppLink = (message: string, phoneNumber: string = '910000000000'): string => {
+export const getWhatsAppLink = (message: string, phoneNumber: string = '918147191739'): string => {
   const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 };

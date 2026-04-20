@@ -37,8 +37,8 @@ export function Header({ onOpenCart }: HeaderProps) {
             className="flex items-center gap-4 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/20 bg-background flex items-center justify-center p-1">
-              <img src="/images/shahi_logo.jpg" alt="Shahi Logo" className="w-full h-full object-contain scale-125" />
+            <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/20 bg-background flex items-center justify-center p-0.5">
+              <img src="/images/shahi_logo.jpg" alt="Shahi Logo" className="w-full h-full object-cover scale-[1.7] transform" />
             </div>
             <div className="flex flex-col">
               <span className="text-2xl font-serif font-black text-primary tracking-tighter leading-none">SHAHIS</span>

@@ -15,25 +15,50 @@ export function CartSheet({ isOpen, onClose }: CartSheetProps) {
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
 
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
+
   const handleCheckout = () => {
-    if (!address || !date || !name) {
+    if (cooldown > 0) return;
+    
+    const trimmedName = name.trim();
+    const trimmedAddress = address.trim();
+    const trimmedDate = date.trim();
+
+    if (!trimmedAddress || !trimmedDate || !trimmedName) {
       alert("Please fill in your name, delivery address, and preferred date.");
       return;
     }
 
+    setIsProcessing(true);
+    
     const order = {
-      customer_name: name,
+      customer_name: trimmedName,
       customer_phone: '', 
-      delivery_address: address,
-      delivery_date: date,
+      delivery_address: trimmedAddress,
+      delivery_date: trimmedDate,
       items: cart,
       total: totalPrice,
     };
 
     const message = formatWhatsAppMessage(order);
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '910000000000';
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '918147191739';
     const link = getWhatsAppLink(message, whatsappNumber);
+    
     window.open(link, '_blank');
+    
+    // Start cooldown to prevent spamming
+    setCooldown(10);
+    const timer = setInterval(() => {
+      setCooldown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          setIsProcessing(false);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
   };
 
   return (
@@ -145,6 +170,7 @@ export function CartSheet({ isOpen, onClose }: CartSheetProps) {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Your Name"
+                          maxLength={50}
                           className="w-full pl-12 pr-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-foreground placeholder-white/20 focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all font-sans"
                         />
                       </div>
@@ -155,6 +181,7 @@ export function CartSheet({ isOpen, onClose }: CartSheetProps) {
                           value={address}
                           onChange={(e) => setAddress(e.target.value)}
                           placeholder="Your Delivery Address"
+                          maxLength={500}
                           className="w-full pl-12 pr-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-foreground placeholder-white/20 focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all resize-none h-32 font-sans"
                         />
                       </div>
@@ -187,12 +214,12 @@ export function CartSheet({ isOpen, onClose }: CartSheetProps) {
               </div>
               <button
                 onClick={handleCheckout}
-                disabled={cart.length === 0}
+                disabled={cart.length === 0 || cooldown > 0}
                 className="w-full btn-gold !h-16 group relative overflow-hidden disabled:opacity-50 disabled:grayscale"
               >
                 <div className="flex items-center justify-center gap-3 relative z-10 font-black tracking-[0.1em]">
                   <ShoppingBag size={20} />
-                  <span>PROCEED TO WHATSAPP</span>
+                  <span>{cooldown > 0 ? `RETRY IN ${cooldown}S` : isProcessing ? 'CHECKING OUT...' : 'PROCEED TO WHATSAPP'}</span>
                 </div>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               </button>
