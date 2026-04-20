@@ -51,7 +51,7 @@ const PRODUCTS: Product[] = [
     category: 'frozen',
     price: 499,
     marinade_type: 'Creamy Malai',
-    image_url: '/images/Gemini_Generated_Image_80q3p280q3p280q3.png',
+    image_url: '/images/malai_tikka_v2.png',
   },
   {
     id: '7',
@@ -67,7 +67,7 @@ const PRODUCTS: Product[] = [
     category: 'frozen',
     price: 200,
     marinade_type: 'Herb-crusted Gourmet',
-    image_url: '/images/Gemini_Generated_Image_sxefplsxefplsxef.png',
+    image_url: '/images/croquettes_v2.png',
   },
   // --- READY TO EAT SELECTION ---
   {
@@ -84,7 +84,7 @@ const PRODUCTS: Product[] = [
     category: 'ready-to-eat',
     price: 60,
     marinade_type: 'Fiery Indo-Chinese',
-    image_url: '/images/Gemini_Generated_Image_i2xgqdi2xgqdi2xg.png',
+    image_url: '/images/schezwan_sandwich_v2.png',
   },
   {
     id: '11',
@@ -92,7 +92,7 @@ const PRODUCTS: Product[] = [
     category: 'ready-to-eat',
     price: 120,
     marinade_type: 'Fresh Gourmet Wrap',
-    image_url: '/images/chicken_wrap_bundle.png',
+    image_url: '/images/tortilla_wrap_v2.png',
   },
   {
     id: '12',
@@ -100,7 +100,7 @@ const PRODUCTS: Product[] = [
     category: 'ready-to-eat',
     price: 45,
     marinade_type: 'Zesty & Creamy',
-    image_url: '/images/chicken_wrap_bundle.png',
+    image_url: '/images/cheesy_chilly_wrap_v2.png',
   },
   {
     id: '13',
@@ -132,7 +132,7 @@ const PRODUCTS: Product[] = [
     category: 'ready-to-eat',
     price: 129,
     marinade_type: 'Classic Sweet',
-    image_url: '/images/Gemini_Generated_Image_mtdo2imtdo2imtdo.png',
+    image_url: '/images/mango_lassi_v2.png',
   }
 ];
 
